@@ -1,0 +1,49 @@
+Greeting,
+
+This is Zhenhai Zhu, the author of pfft++. Welcome to use pfft++.
+
+1) To test run the code, please go to ./test.
+
+There are three drivers in this test directory: driver1.cc, driver2.cc and driver3.cc. 
+Please read the head part of each driver to see what they are for.
+There is a simple mesh generator meshGenDriver.cc that calls sphereGen.c. It generates
+triangle patches on the surface of a sphere. The output mesh file format is the
+same as the input file to fastCap.
+
+To compile the code, just type "make". All three drivers will be compiled. 
+You could do a simple test run as the following:
+./driver1 -i sphere588.qui
+./driver2 -i hfSphere588.qui
+./driver3 -i hfSphere588.qui
+
+If it works out pretty well thus far, you could start to play with these drivers to
+how the performance of pfft++ changes with different parameters, such as
+projectStencilSize, interpStencilSize and directStencilSize.
+
+2) It is widely accepted that the right way to solve the integral equations is
+to used a pre-conditioned, accelerated iterative solver. The program pfft++ is 
+intended to be used as the acceleration engine in the inner loop of an iterative 
+solver. I have included GMRES, a Krylov subspace iterative solver, and superLU.cc 
+and superLU.h, the interface c++ code to the sparse matrix solver SuperLU, in
+the directory ./iter. These two codes are all compatible with pfft++ package.
+You could use pfft++, GMRES and superLU to construct a fast integral equation
+solver. The SuperLU code is not included in this package. It is a public-domain
+code.  
+
+To generate the binary file pfft.o so that you could link it to your 
+application, type "make". The makefile in ./test could be used as an example to
+show how to link pfft.o to another binary.
+
+3) The program pfft++ was developed on Linux platform. So current makefile only 
+supports g++. There is another makefile called compaq.makefile
+and its companion file compaq.def.makefile. These are for Compaq unix. To port
+the code from linux to compaq unix, all I had to do is to change a few compilation
+options. So I assume that no substantial code hacking would be involved if you
+want to port the code to other flavor of unix, as long as its compiler supports
+the C++ standard and STL.
+
+If you have questions or comments, please send email to zhzhu@mit.edu.
+
+Good luck and happy computing!
+
+zhenhai

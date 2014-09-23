@@ -1,0 +1,17 @@
+   # This is a conductivity file for fastimp
+   # Structure type of each conductor is specified by a number
+   # 5: non-ground
+   # 6: ground
+   # 
+
+{File
+   1e-3 unit
+   1   number of conductors
+   { cond 1
+    5   structure type	
+    5.8e7  conductivity of copper
+   } cond 1
+}File
+
+   #--- End of file
+

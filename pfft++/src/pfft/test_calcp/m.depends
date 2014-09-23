@@ -1,0 +1,9 @@
+ix86-linux/element.o: ../element.cc ../../../inc/element.h ../../../inc/vector3D.h \
+  ../../../inc/utils.h
+ix86-linux/utils.o: ../utils.cc ../../../inc/utils.h ../../../inc/vector3D.h
+ix86-linux/kernelIntegration.o: ../kernelIntegration.cc \
+  ../../../inc/kernelIntegration.h ../../../inc/utils.h \
+  ../../../inc/vector3D.h
+ix86-linux/testEikrOverR.o: testEikrOverR.cc ../../../inc/calcpForEikrOverR.h \
+  ../../../inc/vector3D.h ../../../inc/element.h ../../../inc/utils.h \
+  ../../../inc/calcpForOneOverR.h

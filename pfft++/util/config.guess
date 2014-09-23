@@ -1,0 +1,81 @@
+#! /bin/sh
+
+# --------------------------------------------------------------------
+# 
+# This script attempts to guess a canonical system name.
+#   Copyright (C) 1992-1999 Free Software Foundation, Inc.
+#
+# This file is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.  */
+
+#
+# This script attempts to guess a canonical system name similar to
+# config.sub.  If it succeeds, it prints the system name on stdout, and
+# exits with 0.  Otherwise, it exits with 1 and writes 'unknown' to stdout.
+#
+# The plan is that this can be called by configure scripts if you
+# don't specify an explicit system type (host/target name).
+#
+# Only a few systems have been added to this list; please add others
+# (but try to keep the structure clean).
+#
+
+UNAME_MACHINE=`(uname -m) 2>/dev/null` || UNAME_MACHINE=unknown
+UNAME_RELEASE=`(uname -r) 2>/dev/null` || UNAME_RELEASE=unknown
+UNAME_SYSTEM=`(uname -s) 2>/dev/null` || UNAME_SYSTEM=unknown
+UNAME_VERSION=`(uname -v) 2>/dev/null` || UNAME_VERSION=unknown
+
+# Note: order is significant - the case branches are not exclusive.
+
+case "${UNAME_MACHINE}:${UNAME_SYSTEM}:${UNAME_RELEASE}:${UNAME_VERSION}" in
+    alpha:OSF1:*:*)
+	echo alpha-osf
+        exit 0 ;;
+    sun4*:SunOS:5.7:*)
+	echo sparc-solaris64
+	exit 0 ;;
+    sun4*:SunOS:5.*:*)
+	echo sparc-solaris
+	exit 0 ;;
+    sun4*:SunOS:*:*)
+	echo sparc-sunos
+	exit 0 ;;
+    *:AIX:*:*)
+	echo rs6000-aix
+	exit 0 ;;
+    9000/7??:HP-UX:?.10*:*)
+	echo hppa-hpux10
+	exit 0 ;;
+    9000/7??:HP-UX:?.11*:*)
+        echo hppa-hpux11
+	exit 0 ;;
+    9000/7??:HP-UX:*:* | 9000/8?7:HP-UX:*:* )
+	echo hppa1.1-hpux
+	exit 0 ;;
+    i[3456]86:Linux:*:*)
+	echo ix86-linux
+	exit 0 ;;
+    ia64:Linux:*:*)
+	echo ia64-linux
+	exit 0 ;;
+    alpha:Linux:*:*)
+        echo alpha-linux
+        exit 0 ;;
+esac
+
+#echo '(No uname command or uname output not recognized.)' 1>&2
+#echo "${UNAME_MACHINE}:${UNAME_SYSTEM}:${UNAME_RELEASE}:${UNAME_VERSION}" 1>&2
+echo '(Unable to guess system type)' 1>&2
+
+exit 1

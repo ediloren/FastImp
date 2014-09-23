@@ -1,0 +1,14 @@
+ix86-linux/driver1.o: driver1.cc driver.h ../inc/pfft.h ../inc/element.h \
+  ../inc/vector3D.h ../inc/gridElement.h ../inc/grid.h ../inc/stencil.h \
+  ../inc/gridIndex.h ../inc/cubature.h ../inc/kernelIntegration.h \
+  ../inc/utils.h ../inc/cmat.h ../inc/subscript.h ../inc/vec.h \
+  ../inc/gridData.h ../inc/TArray.h ../inc/myArray.h ../inc/x3dconv.h \
+  ../inc/fftwInterface.h ../src/fftw-2.1.3/include/fftw.h \
+  ../src/fftw-2.1.3/include/rfftw.h ../inc/x3dconv_rr.h ../inc/rfft3d.h \
+  ../inc/x3dconv_rc.h ../inc/x3dconv_cc.h ../inc/spRowMat.h \
+  ../inc/spVec.h ../inc/spVecElement.h ../inc/spColMat.h \
+  ../inc/directMat.h ../inc/interpMat.h ../inc/projectMat.h \
+  ../inc/grid2grid.h ../inc/g2gUnion.h ../inc/g2gPoint.h \
+  ../inc/stpwatch.h /usr/include/sys/times.h ../inc/oneOverR.h \
+  ../inc/eikrOverR.h ../inc/calcpForOneOverR.h ../inc/calcpForEikrOverR.h \
+  ../inc/staticCollocation.h ../inc/fullwaveCollocation.h

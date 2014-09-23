@@ -1,0 +1,4 @@
+ix86-linux/element.o: ../element.cc ../../../inc/element.h ../../../inc/vector3D.h \
+  ../../../inc/utils.h
+ix86-linux/testElement.o: testElement.cc ../../../inc/element.h \
+  ../../../inc/vector3D.h

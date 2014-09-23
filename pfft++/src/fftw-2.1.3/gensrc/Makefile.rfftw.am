@@ -1,0 +1,34 @@
+# This file was automatically generated
+# DO NOT EDIT!
+#
+lib_LTLIBRARIES = libXXX_FFTW_PREFIX_XXXrfftw.la
+include_HEADERS = XXX_FFTW_PREFIX_XXXrfftw.h
+INCLUDES = -I$(srcdir)/../fftw -I$(srcdir)
+
+NOTW_CODELETS=@NOTW_CODELETS@
+TWID_CODELETS=@TWID_CODELETS@
+NOTWI_CODELETS=@NOTWI_CODELETS@
+TWIDI_CODELETS=@TWIDI_CODELETS@
+
+CODELETS=$(NOTW_CODELETS) $(TWID_CODELETS) $(NOTWI_CODELETS) $(TWIDI_CODELETS)
+OTHERSRC = rconfig.c rplanner.c rexec.c rexec2.c rfftwnd.c rgeneric.c \
+           rfftwf77.c
+
+libXXX_FFTW_PREFIX_XXXrfftw_la_SOURCES = $(CODELETS) $(OTHERSRC)    \
+					 rfftw.h                   
+
+libXXX_FFTW_PREFIX_XXXrfftw_la_LDFLAGS = -version-info @SHARED_VERSION_INFO@
+MAINTAINERCLEANFILES = $(CODELETS) rconfig.c
+DISTCLEANFILES = srfftw.h drfftw.h
+
+XXX_FFTW_PREFIX1_XXXrfftw.h: rfftw.h
+	rm -f XXX_FFTW_PREFIX_XXXrfftw.h
+	sed 's/<fftw/<XXX_FFTW_PREFIX_XXXfftw/g;s/<rfftw/<XXX_FFTW_PREFIX_XXXrfftw/g' rfftw.h > XXX_FFTW_PREFIX_XXXrfftw.h
+
+CLEANFILES = XXX_FFTW_PREFIX1_XXXrfftw.h
+
+# for some reason, automake tries to use autoheader in order to
+# generate config.h.in, and fails because config.h.in is GNU-lly
+# incorrect.  Just disable autoheader
+AUTOHEADER=echo
+

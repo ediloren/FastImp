@@ -1,0 +1,49 @@
+   # This is an input file for the FastImp
+   # Structure type of each conductor is specified by a number
+   # 1: straight wire
+   # 2: ring
+   # 3: spiral
+   # 4: ground
+   # 5: other shape but is not ground
+   # 6: other shape and is ground
+   # 7: rectangular spiral
+   # 
+   # The unit of size is:
+   # 1: m
+   # 1e-2: cm 
+   # 1e-3: mm
+   # 1e-6: um
+
+{File
+   1e-3   unit
+   1   number of conductors
+   { cond 1
+    1   structure type	
+    { origin
+      0
+      0
+      0
+    } origin
+    { The other end along width
+      1
+      0
+      0
+    } The other end along width
+    { The other end along thickness
+      0
+      0
+      1
+    } The other end along thickness
+    { The other end along length
+      0
+      4
+      0
+    } The other end along length
+    4   number of panels along width
+    4   number of panels along thickness
+    16  number of panels along length
+    5.8e7  conductivity of copper
+   } cond 1
+}File
+
+   #--- End of file
