@@ -34,6 +34,15 @@
 
 namespace pfft {
 
+  // Enrico
+  template <class T>
+  class SpRowMat;
+
+  // Enrico
+  template <class T>
+  std::ostream& operator << (std::ostream& out,
+                                     const SpRowMat<T>& a);
+
   template <class T>
   class SpRowMat {
 
@@ -169,7 +178,9 @@ namespace pfft {
 
     for (size_t row = 0; row < mat.numRow(); row++) {
       for (size_t col = 0; col < mat[row].size(); col++) {
-	ans[mat[row].index(col)] += mat[row].value(col) * vec[row];
+        // Enrico (trivial error, probably not catched if the function was not used)
+        //ans[mat[row].index(col)] += mat[row].value(col) * vec[row];
+        ans[mat[row].index(col)] += mat[row].value(col) * fv[row];
       }
     }    
   }

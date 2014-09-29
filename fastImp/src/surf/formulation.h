@@ -77,12 +77,13 @@ namespace surf {
 
     template <class VecRHS, class VecX> 
     void checkSolution (const VecRHS& RHS, VecX& x) {  
-      cout << "\tThe 2-norm of x := " << two_norm(x) 
-	   << "\tThe 2-norm of RHS := " << two_norm(RHS) << endl;
-      cout << "\tThe 2-norm of b - A * x:= " 
-	   << two_norm(RHS - systemMat * x) << endl;
-      cout << "\tThe infinite-norm of b - A * x:= " 
-	   << infinite_norm(RHS - systemMat * x) << endl;
+      // Enrico, added std:: to cout and endl
+      std::cout << "\tThe 2-norm of x := " << two_norm(x)
+           << "\tThe 2-norm of RHS := " << two_norm(RHS) << std::endl;
+      std::cout << "\tThe 2-norm of b - A * x:= "
+           << two_norm(RHS - systemMat * x) << std::endl;
+      std::cout << "\tThe infinite-norm of b - A * x:= "
+           << infinite_norm(RHS - systemMat * x) << std::endl;
     }
 
     template <class VecA, class VecB> 
@@ -397,9 +398,13 @@ namespace surf {
 	} else {
 	  row = globalStartRowIndex.equa_6_7 + gi;
 	}
-	if (condMesh.vertexType(gi) == LEFT_CONTACT) {
+        // Enrico
+        //if (condMesh.vertexType(gi) == LEFT_CONTACT) {
+        if (condMesh.vertexType(gi) == mesh::LEFT_CONTACT) {
 	  RHS[row] = leftContactVolt[condIndex];
-	} else if (condMesh.vertexType(gi) == RIGHT_CONTACT) {
+        // Enrico
+        //} else if (condMesh.vertexType(gi) == RIGHT_CONTACT) {
+        } else if (condMesh.vertexType(gi) == mesh::RIGHT_CONTACT) {
 	  RHS[row] = rightContactVolt[condIndex];
 	}
       }
@@ -429,9 +434,13 @@ namespace surf {
       } else {
 	row = globalStartRowIndex.equa_6_7 + gi;
       }
-      if (condMesh.vertexType(gi) == LEFT_CONTACT) {
+      // Enrico
+      //if (condMesh.vertexType(gi) == LEFT_CONTACT) {
+      if (condMesh.vertexType(gi) == mesh::LEFT_CONTACT) {
 	RHS[row] = leftContactVolt;
-      } else if (condMesh.vertexType(gi) == RIGHT_CONTACT) {
+      // Enrico
+      //} else if (condMesh.vertexType(gi) == RIGHT_CONTACT) {
+      } else if (condMesh.vertexType(gi) == mesh::RIGHT_CONTACT) {
 	RHS[row] = rightContactVolt;
       }
     }

@@ -23,6 +23,8 @@
 #define __SERVICE_H_
 
 #include <string>
+// Enrico
+#include <iostream>
 
 namespace surf {
 

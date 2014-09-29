@@ -29,6 +29,8 @@
 #include "zsp_defs.h" 
 #include "util.h" 
 #include "spColMat.h"
+// Enrico
+#include "service.h"
 
 namespace surf {
 

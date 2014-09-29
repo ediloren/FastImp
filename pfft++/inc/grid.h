@@ -119,7 +119,10 @@ namespace pfft {
 
     inline void debugReport(std::string message);
     template <class T> 
-    inline void Grid::debugReport (const std::string message, const T number);
+    // Enrico, corrected to avoid gcc error
+    inline void debugReport (const std::string message, const T number);
+    //inline void Grid::debugReport (const std::string message, const T number);
+
     inline void gridReport (void) const;
   };
 

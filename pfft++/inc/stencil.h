@@ -149,7 +149,9 @@ namespace pfft {
     inline double basisFuncValue_dx (const point3D&, const int polyTermIndex) const;
     inline double basisFuncValue_dy (const point3D&, const int polyTermIndex) const;
     inline double basisFuncValue_dz (const point3D&, const int polyTermIndex) const;
-    inline double Stencil::intpow(const double d, int e) const;
+    // Enrico, corrected to avoid gcc error
+    inline double intpow(const double d, int e) const;
+    //inline double Stencil::intpow(const double d, int e) const;
 
   };
 

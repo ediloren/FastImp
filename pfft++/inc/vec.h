@@ -222,7 +222,9 @@ namespace TNT {
   
     //    s <<  "length = " << N << endl;
     for (Subscript i=0; i<N; i++)
-      s   << A[i] << endl;
+      // Enrico, modified to prevent gcc error
+      s   << A[i] << std::endl;
+      //s   << A[i] << endl;
   
     return s;
   }

@@ -23,6 +23,8 @@
 
 #include "utils.h"
 #include <iostream>
+// Enrico, adding header for exit() function
+#include <stdlib.h>
 
 using namespace pfft;
 using namespace std;

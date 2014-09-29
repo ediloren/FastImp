@@ -35,6 +35,16 @@
 
 namespace pfft {
 
+  // Enrico
+  template <class T>
+  class SpVec;
+
+  // Enrico
+  template <class T>
+  std::ostream& operator << (
+           std::ostream& os,
+           const SpVec<T>& sv);
+
   template <class T> 
 
   class SpVec {

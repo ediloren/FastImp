@@ -29,6 +29,33 @@
 
 namespace pfft {
 
+// Enrico, adding the template for the friend function, otherwise gcc will throw an error
+// 'declaration of 'operator>>' as non-function.
+// Removing the <> in the program produces some useful information - and then adding
+// function prototypes makes the error go away
+// (of course, since the friend function does use the class in which it is declared friend,
+// you must add the template for the class as well, in this case 'vector3D'
+// Explanation in the gcc ticket:
+// Wolfgang Bangerth 2004-08-23 14:07:29 UTC
+// I think the error message is actually quite clear: you try to make
+// something a friend which isn't known: for a friend declaration, if
+// name lookup doesn't find an existing name, and if it is a declaration
+// of either a function or a function template, then this injects the
+// name into the surrounding namespace. However, this doesn't apply for
+// a function template specialization, as in your case, if the actual
+// template declaration isn't available. Thus the compiler complains
+// that you are trying to declare something you can't declare (a non-function,
+// non-template). It should be obvious that the compiler can't do anything
+// about it unless you provide a declaration of the general template.
+template <class T>
+class vector3D;
+
+template <class T>
+std::istream&
+operator >> (
+    std::istream& is,
+    vector3D<T>& vec);
+
   template <class T>
 
   class vector3D {

@@ -35,6 +35,15 @@
 
 namespace pfft {
 
+  // Enrico
+  template <class T>
+  class SpColMat;
+
+  // Enrico
+  template<class T>
+  std::ostream& operator<< (std::ostream& out,
+                          const SpColMat<T>& a);
+
   template <class T>
   class SpColMat {
 

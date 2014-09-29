@@ -24,7 +24,18 @@
 #ifndef _SP_VEC_ELEMENT_H_
 #define _SP_VEC_ELEMENT_H_
 
+
 namespace pfft {
+
+  // Enrico
+  template <class T>
+  class SpVecElement;
+
+  // Enrico
+  template<class T>
+  bool operator< (
+              const SpVecElement<T>& ele1,
+              const SpVecElement<T>& ele2);
 
   template <class T> 
   class SpVecElement {

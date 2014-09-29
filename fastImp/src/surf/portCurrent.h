@@ -137,7 +137,9 @@ namespace surf {
 				  std::complex<double>& current) const;
 
     std::complex<double>
-    PortCurrent::energyModeCurrent(
+    // Enrico, corrected to avoid gcc error
+    //PortCurrent::energyModeCurrent(
+    energyModeCurrent(
 				   const ComplexVector& sol,
 				   const size_t sCondIndex,
 				   const size_t tCondIndex);

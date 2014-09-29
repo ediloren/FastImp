@@ -31,6 +31,14 @@
 
 namespace pfft{
  
+// Enrico, prototype declaration
+template<class T>
+  class MyArray;
+
+// Enrico, prototype declaration
+template<class T>
+  std::ostream& operator<< (std::ostream& out, const MyArray<T>& x);
+
   template<class T>
   class MyArray{
   public:
@@ -72,7 +80,9 @@ namespace pfft{
       p_ = 0;
     } else {  
 
-      p_ = static_cast<T*>(::operator new(N_ * sizeof(T), nothrow));
+      // Enrico, corrected to avoid gcc error
+      p_ = static_cast<T*>(::operator new(N_ * sizeof(T), std::nothrow));
+      //p_ = static_cast<T*>(::operator new(N_ * sizeof(T), nothrow));
       assert(p_ != 0);
 
     }
@@ -84,7 +94,9 @@ namespace pfft{
     if(n == 0){
       p_ = 0;
     } else {
-      p_ = static_cast<T*>(::operator new(N_ * sizeof(T), nothrow));
+      // Enrico, corrected to avoid gcc error
+      p_ = static_cast<T*>(::operator new(N_ * sizeof(T), std::nothrow));
+      //p_ = static_cast<T*>(::operator new(N_ * sizeof(T), nothrow));
       assert(p_ != 0);
       for(size_t ii=0; ii<N_; ++ii){
 	p_[ii] = t;
@@ -98,7 +110,9 @@ namespace pfft{
     assert(n > 0);
     if(n > N_){
       ::operator delete(p_);
-      p_ = static_cast<T*>(::operator new(n * sizeof(T), nothrow));
+     // Enrico, corrected to avoid gcc error
+      p_ = static_cast<T*>(::operator new(n * sizeof(T), std::nothrow));
+      //p_ = static_cast<T*>(::operator new(n * sizeof(T), nothrow));
       assert(p_ != 0);
     }
     N_ = n;

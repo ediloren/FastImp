@@ -27,6 +27,9 @@
 #include "TArray.h"
 #include "rfft3d.h"
 
+//Enrico
+extern double mydrand(void);
+
 namespace pfft{
   
   template<class T3>
