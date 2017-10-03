@@ -368,7 +368,9 @@ namespace pfft {
       sum += acos(costheta); 
     }
   
-    if (abs(sum - 2*PAI) < 1.e-6) {
+    // Enrico, calling double std::abs(double) instead of casting to int abs(int)
+//    if (abs(sum - 2*PAI) < 1.e-6) {
+    if (std::abs(sum - 2*PAI) < 1.e-6) {
       return true;
     } 
     return false;

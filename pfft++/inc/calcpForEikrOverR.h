@@ -283,7 +283,9 @@ namespace pfft{
   ::getEvalPointDirection (
 			   const vector3D<double>& evalPnt)
   {
-    if (abs(evalPnt.z()) == 0.) {
+    // Enrico, calling double std::abs(double) instead of casting to int abs(int)
+//    if (abs(evalPnt.z()) == 0.) {
+    if (std::abs(evalPnt.z()) == 0.) {
       if ((evalPointDirection_ != FOLLOW_NORMAL_DIRECTION) && 
 	  (evalPointDirection_ != AGAINST_NORMAL_DIRECTION)) {
 	pfft::errorMessage("surfCalcp.c : setupPanelLocalCoordSystem",
@@ -325,11 +327,15 @@ namespace pfft{
     
     double project = - (Y * PA);
     triangleInfo_.AH = Y * project;
-    triangleInfo_.AH_len = abs(project); 
+   // Enrico, calling double std::abs(double) instead of casting to int abs(int)
+//    triangleInfo_.AH_len = abs(project);
+    triangleInfo_.AH_len = std::abs(project);
   
     triangleInfo_.PH_unit = PA + triangleInfo_.AH;
     triangleInfo_.PH_len = length(triangleInfo_.PH_unit);
-      if( abs(triangleInfo_.PH_len) < 
+    // Enrico, calling double std::abs(double) instead of casting to int abs(int)
+//      if( abs(triangleInfo_.PH_len) <
+      if( std::abs(triangleInfo_.PH_len) <
 	(1e1*DBL_EPSILON * triangleInfo_.AB_len) ){
       triangleInfo_.PH_unit = vector3D<double>(0., 0., 0.);
       triangleInfo_.PH_len = 0.;
@@ -500,7 +506,9 @@ namespace pfft{
     double h = evalPnt.z();
     double d = triangleInfo_.PH_len;
     std::complex<double> IK = std::complex<double>(0., 1.) * K_;
-    double Ra = abs(h);
+    // Enrico, calling double std::abs(double) instead of casting to int abs(int)
+//    double Ra = abs(h);
+    double Ra = std::abs(h);
     
     slp = std::complex<double>(0., 0.);
     dIdx = std::complex<double>(0., 0.);
@@ -719,9 +727,13 @@ namespace pfft{
       dfdn = std::complex<double>(0., 0.);
     } else if (projectPointOnEdge_) {
       // doubleLayer should be PAI
-      if (abs(realPart/PAI - 1.) < 5e-2) {
+          // Enrico, calling double std::abs(double) instead of casting to int abs(int)
+//      if (abs(realPart/PAI - 1.) < 5e-2) {
+      if (std::abs(realPart/PAI - 1.) < 5e-2) {
 	dfdn = std::complex<double>(PAI, 0.);
-      } else if (abs(realPart/(-PAI) - 1.) < 5e-2) {
+	    // Enrico, calling double std::abs(double) instead of casting to int abs(int)
+//      } else if (abs(realPart/(-PAI) - 1.) < 5e-2) {
+      } else if (std::abs(realPart/(-PAI) - 1.) < 5e-2) {
 	dfdn = std::complex<double>(-PAI, 0.);
       }
     } else {
@@ -811,7 +823,9 @@ namespace pfft{
 	double z1 = z;
 	z = z1 - p1/pp;
 	
-	if (abs(z-z1) < 1e1*DBL_EPSILON ) {
+    // Enrico, calling double std::abs(double) instead of casting to int abs(int)
+//	if (abs(z-z1) < 1e1*DBL_EPSILON ) {
+	if (std::abs(z-z1) < 1e1*DBL_EPSILON ) {
 	  converge = true;
 	} 
 

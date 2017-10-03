@@ -1126,7 +1126,9 @@ namespace surf {
     for (size_t rowIndex = 0; rowIndex < mat.numRow(); rowIndex++) {
       for (size_t colIndex = 0; colIndex < mat[rowIndex].size(); colIndex++) {
 	T value = mat[rowIndex].value(colIndex);
-	if (abs(value) > threshold) {
+    // Enrico, calling double std::abs(double) instead of casting to int abs(int)
+//	if (abs(value) > threshold) {
+	if (std::abs(value) > threshold) {
 	  systemMat.insertElement(rowIndex + startRow, 
 				  mat[rowIndex].index(colIndex), value);
 	}
