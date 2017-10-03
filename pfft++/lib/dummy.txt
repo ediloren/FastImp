@@ -1,0 +1,4 @@
+Dummy file to force directory to exist, as the directory 'lib' is needed during
+the build process, and would be otherwise not checked out, and therefore created,
+by git
+
