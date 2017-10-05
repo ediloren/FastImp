@@ -1,0 +1,111 @@
+===============
+CLapack
+===============
+
+1.1) What is CLAPACK?
+
+The CLAPACK library was built using a Fortran to C conversion utility called f2c. The entire Fortran 77 LAPACK library
+is run through f2c to obtain C code, and then modified to improve readability. CLAPACK's goal is to provide LAPACK
+for someone who does not have access to a Fortran compiler. 
+
+1.2) Are there legal restrictions on the use of CLAPACK software?
+
+CLAPACK is a freely-available software package. It is available from netlib via anonymous ftp
+and the World Wide Web. Thus, it can be included in commercial software packages (and has been).
+We only ask that proper credit be given to the authors. Namely, we ask that you cite the LAPACK Users' Guide, Third Edition.
+
+@BOOK{laug,
+      AUTHOR = {Anderson, E. and Bai, Z. and Bischof, C. and
+                Blackford, S. and Demmel, J. and Dongarra, J. and
+                Du Croz, J. and Greenbaum, A. and Hammarling, S. and
+                McKenney, A. and Sorensen, D.},
+      TITLE = {{LAPACK} Users' Guide},
+      EDITION = {Third},
+      PUBLISHER = {Society for Industrial and Applied Mathematics},
+      YEAR = {1999},
+      ADDRESS = {Philadelphia, PA},
+      ISBN = {0-89871-447-8 (paperback)} }
+
+Like all software, it is copyrighted. It is not trademarked, but we do ask the following:
+
+If you modify the source for these routines we ask that you change the name of the routine and comment the changes
+made to the original.
+
+We will gladly answer any questions regarding the software. If a modification is done, however, it is the responsibility
+of the person who modified the routine to provide support.
+
+==============
+Lapack
+==============
+
+LAPACK is a freely-available software package. It is available from netlib via anonymous ftp and the World Wide Web
+at http://www.netlib.org/lapack . Thus, it can be included in commercial software packages (and has been).
+We only ask that proper credit be given to the authors.
+
+The license used for the software is the modified BSD license, see below.
+
+Like all software, it is copyrighted. It is not trademarked, but we do ask the following:
+
+If you modify the source for these routines we ask that you change the name of the routine and comment the changes
+made to the original.
+
+We will gladly answer any questions regarding the software. If a modification is done, however, it is the responsibility
+of the person who modified the routine to provide support.
+
+
+===============
+Modified BSD License
+===============
+
+
+Copyright (c) 1992-2013 The University of Tennessee and The University
+                        of Tennessee Research Foundation.  All rights
+                        reserved.
+Copyright (c) 2000-2013 The University of California Berkeley. All
+                        rights reserved.
+Copyright (c) 2006-2013 The University of Colorado Denver.  All rights
+                        reserved.
+
+$COPYRIGHT$
+
+Additional copyrights may follow
+
+$HEADER$
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+- Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+
+- Redistributions in binary form must reproduce the above copyright
+  notice, this list of conditions and the following disclaimer listed
+  in this license in the documentation and/or other materials
+  provided with the distribution.
+
+- Neither the name of the copyright holders nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+The copyright holders provide no reassurances that the source code
+provided does not infringe any patent, copyright, or any other
+intellectual property rights of third parties.  The copyright holders
+disclaim any liability to any recipient for claims brought against
+recipient by any third party for infringement of that parties
+intellectual property rights.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+

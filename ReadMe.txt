@@ -31,6 +31,7 @@ For the exact license details, please check the information contained with the s
 
 - TNT, http://math.nist.gov/tnt/ : Template Numerical Toolkit from Nist. Not copyrighted and in the public domain.
 
+A copy of the licenses, to the best of our knowledge and understanding, is reported in the "License" folder.
 
 ---------------------------
 How-to-compile instructions
