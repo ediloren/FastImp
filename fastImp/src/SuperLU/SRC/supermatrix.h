@@ -16,9 +16,17 @@ typedef enum {
 } Stype_t;
 
 typedef enum {
-    _S,         /* single */
+    // Enrico, _S is reserved by stdlib C++ (see documentation, e.g. https://gcc.gnu.org/onlinedocs/libstdc++/)
+    // changing name to the one used in later SuperLU implementation, as w/a before upgrading the whole SuperLU library
+    // used by FastImp
+    //_S,         /* single */
+    SLU_S,         /* single */
     _D,         /* double */
-    _C,         /* single complex */
+    // Enrico, _C is reserved by stdlib C++ (see documentation, e.g. https://gcc.gnu.org/onlinedocs/libstdc++/)
+    // changing name to the one used in later SuperLU implementation, as w/a before upgrading the whole SuperLU library
+    // used by FastImp
+    //_C,         /* single complex */
+    SLU_C,         /* single complex */
     _Z          /* double complex */
 } Dtype_t;
 

@@ -154,8 +154,8 @@ main(int argc, char *argv[])
     solx = floatMalloc(n * nrhs);
     ldb  = m;
     ldx  = n;
-    sCreate_Dense_Matrix(&B, m, nrhs, rhsb, ldb, DN, _S, GE);
-    sCreate_Dense_Matrix(&X, n, nrhs, solx, ldx, DN, _S, GE);
+    sCreate_Dense_Matrix(&B, m, nrhs, rhsb, ldb, DN, SLU_S, GE);
+    sCreate_Dense_Matrix(&X, n, nrhs, solx, ldx, DN, SLU_S, GE);
     xact = floatMalloc(n * nrhs);
     etree   = intMalloc(n);
     perm_r  = intMalloc(n);
@@ -226,11 +226,11 @@ main(int argc, char *argv[])
 	    zerot = 0;
 	}
 	
-	sCreate_CompCol_Matrix(&A, m, n, nnz, a, asub, xa, NC, _S, GE);
+	sCreate_CompCol_Matrix(&A, m, n, nnz, a, asub, xa, NC, SLU_S, GE);
 
 	/* Save a copy of matrix A in ASAV */
 	sCreate_CompCol_Matrix(&ASAV, m, n, nnz, a_save, asub_save, xa_save,
-			      NC, _S, GE);
+			      NC, SLU_S, GE);
 	sCopy_CompCol_Matrix(&A, &ASAV);
 	
 	/* Form exact solution. */

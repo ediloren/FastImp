@@ -34,7 +34,7 @@ slaqgs(SuperMatrix *A, float *r, float *c,
     A       (input/output) SuperMatrix*
             On exit, the equilibrated matrix.  See EQUED for the form of 
             the equilibrated matrix. The type of A can be:
-	    Stype = NC; Dtype = _S; Mtype = GE.
+	    Stype = NC; Dtype = SLU_S; Mtype = GE.
 	    
     R       (input) float*, dimension (A->nrow)
             The row scale factors for A.

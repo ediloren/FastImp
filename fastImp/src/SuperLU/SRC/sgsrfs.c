@@ -46,17 +46,17 @@ sgsrfs(char *trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
  *   A       (input) SuperMatrix*
  *           The original matrix A in the system, or the scaled A if
  *           equilibration was done. The type of A can be:
- *           Stype = NC, Dtype = _S, Mtype = GE.
+ *           Stype = NC, Dtype = SLU_S, Mtype = GE.
  *    
  *   L       (input) SuperMatrix*
  *	     The factor L from the factorization Pr*A*Pc=L*U. Use
  *           compressed row subscripts storage for supernodes, 
- *           i.e., L has types: Stype = SC, Dtype = _S, Mtype = TRLU.
+ *           i.e., L has types: Stype = SC, Dtype = SLU_S, Mtype = TRLU.
  * 
  *   U       (input) SuperMatrix*
  *           The factor U from the factorization Pr*A*Pc=L*U as computed by
  *           sgstrf(). Use column-wise storage scheme, 
- *           i.e., U has types: Stype = NC, Dtype = _S, Mtype = TRU.
+ *           i.e., U has types: Stype = NC, Dtype = SLU_S, Mtype = TRU.
  *
  *   perm_r  (input) int*, dimension (A->nrow)
  *           Row permutation vector, which defines the permutation matrix Pr;
@@ -86,12 +86,12 @@ sgsrfs(char *trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
  *           If equed = 'N' or 'R', C is not accessed.
  *
  *   B       (input) SuperMatrix*
- *           B has types: Stype = DN, Dtype = _S, Mtype = GE.
+ *           B has types: Stype = DN, Dtype = SLU_S, Mtype = GE.
  *           The right hand side matrix B.
  *           if equed = 'R' or 'B', B is premultiplied by diag(R).
  *
  *   X       (input/output) SuperMatrix*
- *           X has types: Stype = DN, Dtype = _S, Mtype = GE.
+ *           X has types: Stype = DN, Dtype = SLU_S, Mtype = GE.
  *           On entry, the solution matrix X, as computed by sgstrs().
  *           On exit, the improved solution matrix X.
  *           if *equed = 'C' or 'B', X should be premultiplied by diag(C)
@@ -170,19 +170,19 @@ sgsrfs(char *trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
     notran = lsame_(trans, "N");
     if ( !notran && !lsame_(trans, "T") && !lsame_(trans, "C"))	*info = -1;
     else if ( A->nrow != A->ncol || A->nrow < 0 ||
-	      A->Stype != NC || A->Dtype != _S || A->Mtype != GE )
+	      A->Stype != NC || A->Dtype != SLU_S || A->Mtype != GE )
 	*info = -2;
     else if ( L->nrow != L->ncol || L->nrow < 0 ||
- 	      L->Stype != SC || L->Dtype != _S || L->Mtype != TRLU )
+ 	      L->Stype != SC || L->Dtype != SLU_S || L->Mtype != TRLU )
 	*info = -3;
     else if ( U->nrow != U->ncol || U->nrow < 0 ||
- 	      U->Stype != NC || U->Dtype != _S || U->Mtype != TRU )
+ 	      U->Stype != NC || U->Dtype != SLU_S || U->Mtype != TRU )
 	*info = -4;
     else if ( ldb < MAX(0, A->nrow) ||
- 	      B->Stype != DN || B->Dtype != _S || B->Mtype != GE )
+ 	      B->Stype != DN || B->Dtype != SLU_S || B->Mtype != GE )
         *info = -10;
     else if ( ldx < MAX(0, A->nrow) ||
- 	      X->Stype != DN || X->Dtype != _S || X->Mtype != GE )
+ 	      X->Stype != DN || X->Dtype != SLU_S || X->Mtype != GE )
 	*info = -11;
     if (*info != 0) {
 	i = -(*info);

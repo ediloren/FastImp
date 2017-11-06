@@ -4,6 +4,7 @@
 # makefiles in the src/* directories. 
 #
 CFLAG = -c $(GPROF_FLAG) $(GDB_FLAG) $(OPTIM_FLAGS_FOR_C++) $(CONSTRUCTOR) \
+           $(MCMODEL) $(PIC) $(PERMISSIVE) \
 	   $(WARNING_FLAGS) $(MORE_WARNING_FLAGS) \
            $(DEBUG_FLAG) $(SURF_RUN_TIME) $(SURF_PROGRESS) $(SURF_MEMORY) \
 	   $(PFFT_RUN_TIME) $(PFFT_PROGRESS) \

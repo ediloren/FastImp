@@ -32,17 +32,17 @@ sPivotGrowth(int ncols, SuperMatrix *A, int *perm_c,
  * A        (input) SuperMatrix*
  *	    Original matrix A, permuted by columns, of dimension
  *          (A->nrow, A->ncol). The type of A can be:
- *          Stype = NC; Dtype = _S; Mtype = GE.
+ *          Stype = NC; Dtype = SLU_S; Mtype = GE.
  *
  * L        (output) SuperMatrix*
  *          The factor L from the factorization Pr*A=L*U; use compressed row 
  *          subscripts storage for supernodes, i.e., L has type: 
- *          Stype = SC; Dtype = _S; Mtype = TRLU.
+ *          Stype = SC; Dtype = SLU_S; Mtype = TRLU.
  *
  * U        (output) SuperMatrix*
  *	    The factor U from the factorization Pr*A*Pc=L*U. Use column-wise
  *          storage scheme, i.e., U has types: Stype = NC;
- *          Dtype = _S; Mtype = TRU.
+ *          Dtype = SLU_S; Mtype = TRU.
  *
  */
     NCformat *Astore;

@@ -58,12 +58,12 @@ sgstrs (char *trans, SuperMatrix *L, SuperMatrix *U,
  * L       (input) SuperMatrix*
  *         The factor L from the factorization Pr*A*Pc=L*U as computed by
  *         sgstrf(). Use compressed row subscripts storage for supernodes,
- *         i.e., L has types: Stype = SC, Dtype = _S, Mtype = TRLU.
+ *         i.e., L has types: Stype = SC, Dtype = SLU_S, Mtype = TRLU.
  *
  * U       (input) SuperMatrix*
  *         The factor U from the factorization Pr*A*Pc=L*U as computed by
  *         sgstrf(). Use column-wise storage scheme, i.e., U has types:
- *         Stype = NC, Dtype = _S, Mtype = TRU.
+ *         Stype = NC, Dtype = SLU_S, Mtype = TRU.
  *
  * perm_r  (input) int*, dimension (L->nrow)
  *         Row permutation vector, which defines the permutation matrix Pr; 
@@ -75,7 +75,7 @@ sgstrs (char *trans, SuperMatrix *L, SuperMatrix *U,
  *         in position j in A*Pc.
  *
  * B       (input/output) SuperMatrix*
- *         B has types: Stype = DN, Dtype = _S, Mtype = GE.
+ *         B has types: Stype = DN, Dtype = SLU_S, Mtype = GE.
  *         On entry, the right hand side matrix.
  *         On exit, the solution matrix if info = 0;
  *
@@ -110,13 +110,13 @@ sgstrs (char *trans, SuperMatrix *L, SuperMatrix *U,
     notran = lsame_(trans, "N");
     if ( !notran && !lsame_(trans, "T") && !lsame_(trans, "C") ) *info = -1;
     else if ( L->nrow != L->ncol || L->nrow < 0 ||
-	      L->Stype != SC || L->Dtype != _S || L->Mtype != TRLU )
+	      L->Stype != SC || L->Dtype != SLU_S || L->Mtype != TRLU )
 	*info = -2;
     else if ( U->nrow != U->ncol || U->nrow < 0 ||
-	      U->Stype != NC || U->Dtype != _S || U->Mtype != TRU )
+	      U->Stype != NC || U->Dtype != SLU_S || U->Mtype != TRU )
 	*info = -3;
     else if ( ldb < MAX(0, L->nrow) ||
-	      B->Stype != DN || B->Dtype != _S || B->Mtype != GE )
+	      B->Stype != DN || B->Dtype != SLU_S || B->Mtype != GE )
 	*info = -6;
     if ( *info ) {
 	i = -(*info);

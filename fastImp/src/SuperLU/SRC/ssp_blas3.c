@@ -77,7 +77,7 @@ sp_sgemm(char *transa, char *transb, int m, int n, int k,
     A      - (input) SuperMatrix*
              Matrix A with a sparse format, of dimension (A->nrow, A->ncol).
              Currently, the type of A can be:
-                 Stype = NC or NCP; Dtype = _S; Mtype = GE. 
+                 Stype = NC or NCP; Dtype = SLU_S; Mtype = GE. 
              In the future, more general A can be handled.
 
     B      - FLOAT PRECISION array of DIMENSION ( LDB, kb ), where kb is 

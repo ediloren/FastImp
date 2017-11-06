@@ -45,12 +45,12 @@ sgscon(char *norm, SuperMatrix *L, SuperMatrix *U,
     L       (input) SuperMatrix*
             The factor L from the factorization Pr*A*Pc=L*U as computed by
             sgstrf(). Use compressed row subscripts storage for supernodes,
-            i.e., L has types: Stype = SC, Dtype = _S, Mtype = TRLU.
+            i.e., L has types: Stype = SC, Dtype = SLU_S, Mtype = TRLU.
  
     U       (input) SuperMatrix*
             The factor U from the factorization Pr*A*Pc=L*U as computed by
             sgstrf(). Use column-wise storage scheme, i.e., U has types:
-            Stype = NC, Dtype = _S, Mtype = TRU.
+            Stype = NC, Dtype = SLU_S, Mtype = TRU.
 	    
     ANORM   (input) float
             If NORM = '1' or 'O', the 1-norm of the original matrix A.   
@@ -82,10 +82,10 @@ sgscon(char *norm, SuperMatrix *L, SuperMatrix *U,
     onenrm = *(unsigned char *)norm == '1' || lsame_(norm, "O");
     if (! onenrm && ! lsame_(norm, "I")) *info = -1;
     else if (L->nrow < 0 || L->nrow != L->ncol ||
-             L->Stype != SC || L->Dtype != _S || L->Mtype != TRLU)
+             L->Stype != SC || L->Dtype != SLU_S || L->Mtype != TRLU)
 	 *info = -2;
     else if (U->nrow < 0 || U->nrow != U->ncol ||
-             U->Stype != NC || U->Dtype != _S || U->Mtype != TRU) 
+             U->Stype != NC || U->Dtype != SLU_S || U->Mtype != TRU) 
 	*info = -3;
     if (*info != 0) {
 	i = -(*info);

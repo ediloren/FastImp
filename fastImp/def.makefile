@@ -40,6 +40,28 @@ SURF_MEMORY = -DPRINT_MEMORY
 # Skip generation of a temp variable in constructing an object
 CONSTRUCTOR = -felide-constructors
 
+# Work-around for GCC 4.7 and later, as the C++ compiler no longer performs
+# some extra unqualified lookups it had performed in the past, namely dependent
+# base class scope lookups and unqualified template function lookups
+# resulting in the error "<<xxx>> was not declared in this scope, and no declarations
+# were found by argument-dependent lookup at the point of instantiation [-fpermissive]"
+PERMISSIVE = -fpermissive
+
+# enable PIC (position-independent code) to avoid the
+# "relocation truncated to fit: R_X86_64_PC32" error.
+# The error is caused by linking a shared library (which requires position-independent code,
+# PIC) to a static library (which has not been compiled with PIC). You need to either link
+# the shared library against a shared version of the static code (such as is produced
+# automatically by libtool), or re-compile the static library with PIC enabled.
+#PIC=-fPIC
+# enable the right memory model to avoid the "relocation truncated to fit: R_X86_64_PC32"
+# issue, due to assumptions about the program and symbols being in the lower 2G
+# of address space. With 'medium', symbols with sizes larger than `-mlarge-data-threshold'
+# are put into large data or BSS sections and can be located above 2GB.
+# With 'large', the compiler makes no assumptions about addresses and sizes of sections,
+# at the cost of a slightly larger overhead when calling functions.
+MCMODEL=-mcmodel=large
+
 # For profiling
 #GPROF_FLAG = -pg
 

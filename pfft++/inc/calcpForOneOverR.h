@@ -27,6 +27,8 @@
 #include <cfloat> // for DBL_MIN, DBL_MAX, DBL_EPSILON
 #include "utils.h" // for PAI
 #include <assert.h>
+// Enrico, for std::min and std::max
+#include <algorithm>
 
 namespace pfft {
 
@@ -398,9 +400,13 @@ namespace pfft {
       size_t j = (ii+1) % numOfVertex;
       panelInfo_.edgeLength[ii] 
 	= length(srcPanel.vertex(j) - srcPanel.vertex(ii));
-      panelInfo_.minSideLength = min(panelInfo_.minSideLength,
+	  // Enrico, changed to standard template function
+      //panelInfo_.minSideLength = min(panelInfo_.minSideLength,
+      panelInfo_.minSideLength = std::min(panelInfo_.minSideLength,
 				     panelInfo_.edgeLength[ii]);
-      panelInfo_.maxSideLength = max(panelInfo_.maxSideLength,
+	  // Enrico, changed to standard template function
+      //panelInfo_.maxSideLength = max(panelInfo_.maxSideLength,
+      panelInfo_.maxSideLength = std::max(panelInfo_.maxSideLength,
 				     panelInfo_.edgeLength[ii]);
     };
   

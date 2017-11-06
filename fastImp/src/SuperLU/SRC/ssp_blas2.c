@@ -65,11 +65,11 @@ sp_strsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
  *   L       - (input) SuperMatrix*
  *	       The factor L from the factorization Pr*A*Pc=L*U. Use
  *             compressed row subscripts storage for supernodes,
- *             i.e., L has types: Stype = SC, Dtype = _S, Mtype = TRLU.
+ *             i.e., L has types: Stype = SC, Dtype = SLU_S, Mtype = TRLU.
  *
  *   U       - (input) SuperMatrix*
  *	        The factor U from the factorization Pr*A*Pc=L*U.
- *	        U has types: Stype = NC, Dtype = _S, Mtype = TRU.
+ *	        U has types: Stype = NC, Dtype = SLU_S, Mtype = TRU.
  *    
  *   x       - (input/output) float*
  *             Before entry, the incremented array X must contain the n   
@@ -331,7 +331,7 @@ sp_sgemv(char *trans, float alpha, SuperMatrix *A, float *x,
     A      - (input) SuperMatrix*
              Matrix A with a sparse format, of dimension (A->nrow, A->ncol).
              Currently, the type of A can be:
-                 Stype = NC or NCP; Dtype = _S; Mtype = GE. 
+                 Stype = NC or NCP; Dtype = SLU_S; Mtype = GE. 
              In the future, more general A can be handled.
 
     X      - (input) float*, array of DIMENSION at least   

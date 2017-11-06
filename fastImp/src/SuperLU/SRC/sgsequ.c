@@ -42,7 +42,7 @@ sgsequ(SuperMatrix *A, float *r, float *c, float *rowcnd,
     A       (input) SuperMatrix*
             The matrix of dimension (A->nrow, A->ncol) whose equilibration
             factors are to be computed. The type of A can be:
-            Stype = NC; Dtype = _S; Mtype = GE.
+            Stype = NC; Dtype = SLU_S; Mtype = GE.
 	    
     R       (output) float*, size A->nrow
             If INFO = 0 or INFO > M, R contains the row scale factors   
@@ -88,7 +88,7 @@ sgsequ(SuperMatrix *A, float *r, float *c, float *rowcnd,
     /* Test the input parameters. */
     *info = 0;
     if ( A->nrow < 0 || A->ncol < 0 ||
-	 A->Stype != NC || A->Dtype != _S || A->Mtype != GE )
+	 A->Stype != NC || A->Dtype != SLU_S || A->Mtype != GE )
 	*info = -1;
     if (*info != 0) {
 	i = -(*info);

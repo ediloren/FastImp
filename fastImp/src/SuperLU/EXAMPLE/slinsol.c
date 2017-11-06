@@ -33,12 +33,12 @@ main(int argc, char *argv[])
     
     sreadhb(&m, &n, &nnz, &a, &asub, &xa);
 
-    sCreate_CompCol_Matrix(&A, m, n, nnz, a, asub, xa, NC, _S, GE);
+    sCreate_CompCol_Matrix(&A, m, n, nnz, a, asub, xa, NC, SLU_S, GE);
     Astore = A.Store;
     printf("Dimension %dx%d; # nonzeros %d\n", A.nrow, A.ncol, Astore->nnz);
     
     if ( !(rhs = floatMalloc(m * nrhs)) ) ABORT("Malloc fails for rhs[].");
-    sCreate_Dense_Matrix(&B, m, nrhs, rhs, m, DN, _S, GE);
+    sCreate_Dense_Matrix(&B, m, nrhs, rhs, m, DN, SLU_S, GE);
     xact = floatMalloc(n * nrhs);
     ldx = n;
     sGenXtrue(n, nrhs, xact, ldx);
