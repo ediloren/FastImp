@@ -37,7 +37,7 @@ A copy of the licenses, to the best of our knowledge and understanding, is repor
 How-to-compile instructions
 ---------------------------
 
-FastImp currently compiles for *nix only.
+FastImp currently compiles for *nix and for Windows using CygWin.
 
 FastImp has two main components:
 
@@ -61,5 +61,6 @@ This name is a combination of your computer type and the operating system type. 
 if you use a desktop x86 PC with Linux as the operating system, this sub-directory would be called ix86-linux.
 
 FastImp was originally developed on Redhat Linux 7.2 with GNU gcc/g++ 2.96 as its compilers and GNU make as its builder.
-The present version has been fixed to compile with GNU gcc/g++ 4.1 and GNU make.
-
+The present version has been fixed to compile with:
+- Linux, GNU gcc/g++ 4.1 and GNU make
+- Windows, CygWin 6.1 with gcc/g++ 6.4.0 and GNU make 4.2.1
